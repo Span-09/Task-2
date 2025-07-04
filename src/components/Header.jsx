@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/Header.css";
+
 import logo from "../assets/images/logo.png";
 import menu from "../assets/images/menu.svg";
 import search from "../assets/images/gg_search.svg"; // Import close icon
 import home from "../assets/images/home.svg";
 import plus from "../assets/images/tdesign_plus.svg";
 import minus from "../assets/images/ic_outline-minus.svg";
+import mobileArrow from "../assets/images/arrow-down.svg";
 
 const navLinks = [
   {
@@ -52,6 +54,8 @@ const Header = ({ zoom, setZoom }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(""); // Track open dropdown
   const [breadcrumbVisible, setBreadcrumbVisible] = useState(true);
+  // For mobile drawer: which main nav is open
+  const [openMobileNav, setOpenMobileNav] = useState("");
 
   const MAX_ZOOM = 1.4;
   const MIN_ZOOM = 0.8;
@@ -115,33 +119,61 @@ const Header = ({ zoom, setZoom }) => {
         <nav className="drawer-nav">
           {navLinks.map((nav) => (
             <div key={nav.label} className="drawer-nav-item">
-              <span className="drawer-nav-label">{nav.label}</span>
-              <div className="drawer-submenu">
-                {nav.submenu.map((sub) => (
-                  <a
-                    key={sub.label}
-                    href={sub.href}
-                    className="drawer-submenu-link"
-                    onClick={() => {
-                      setSelectedNav(nav.label);      // set main nav for breadcrumb
-                      setSelectedSubNav(sub.label);   // set subnav for breadcrumb
-                      setShowMobileMenu(false);       // close drawer
-                    }}
-                  >
-                    {sub.label}
-                  </a>
-                ))}
-              </div>
+              <button
+                className="drawer-nav-label mobile-nav-center"
+                style={{
+                  background: "none",
+                  border: "none",
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: "bold",
+                  fontSize: "1.1rem",
+                  color: openMobileNav === nav.label ? "#ff6a00" : "#222",
+                  padding: "10px 0",
+                  cursor: "pointer",
+                  gap: "6px"
+                }}
+                onClick={() => setOpenMobileNav(openMobileNav === nav.label ? "" : nav.label)}
+              >
+                {nav.label}
+                <img
+                  src={mobileArrow}
+                  alt="dropdown arrow"
+                  style={{
+                    width: 22,
+                    height: 14,
+                    marginLeft: 4,
+                    transition: "transform 0.2s",
+                    transform: openMobileNav === nav.label ? "rotate(180deg)" : "none"
+                  }}
+                />
+              </button>
+              {openMobileNav === nav.label && (
+                <div className="drawer-submenu" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  {nav.submenu.map((sub) => (
+                    <a
+                      key={sub.label}
+                      href={sub.href}
+                      className="drawer-submenu-link"
+                      style={{ textAlign: "center", width: "100%" }}
+                      onClick={() => {
+                        setSelectedNav(nav.label);      // set main nav for breadcrumb
+                        setSelectedSubNav(sub.label);   // set subnav for breadcrumb
+                        setShowMobileMenu(false);       // close drawer
+                        setOpenMobileNav("");           // close submenu
+                      }}
+                    >
+                      {sub.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </nav>
-        {/* Add both buttons here */}
-        <button id="drawer-mypage-button" className="drawer-action-btn" href="/Shopping/sign_up.php">
-          마이페이지
-        </button>
-        <button id="drawer-logout-button" className="drawer-action-btn" href="/Shopping/login.php">
-          로그인
-        </button>
+        {/* Mobile drawer buttons removed as requested */}
       </div>
       {showMobileMenu && (
         <div
@@ -162,44 +194,102 @@ const Header = ({ zoom, setZoom }) => {
             <img src={menu} alt="Menu" className="menu" />
           </div>
           <div className="nav-group">
-            {navLinks.map((nav) => (
-              <div
-                className={`nav-item dropdown-container${openDropdown === nav.label ? " open" : ""}`}
-                key={nav.label}
-                onMouseEnter={() => setOpenDropdown(nav.label)}
-                onMouseLeave={() => setOpenDropdown("")}
-              >
-                <button
-                  className={`dropdown-trigger${selectedNav === nav.label ? " active" : ""}`}
-                  onClick={() => {
-                    setOpenDropdown(openDropdown === nav.label ? "" : nav.label);
-                    setSelectedNav(nav.label);
-                    setSelectedSubNav(""); // Reset subnav
-                  }}
-                  type="button"
+            <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+              {navLinks.map((nav) => (
+                <div
+                  className={`nav-item dropdown-container${openDropdown === nav.label ? " open" : ""}`}
+                  key={nav.label}
+                  onMouseEnter={() => setOpenDropdown(nav.label)}
+                  onMouseLeave={() => setOpenDropdown("")}
+                  style={{ height: '100%', display: 'flex', alignItems: 'center' }}
                 >
-                  {nav.label}
-                </button>
-                {openDropdown === nav.label && (
-                  <div className="dropdown-menu">
-                    {nav.submenu.map(sub => (
-                      <button
-                        className={`dropdown-item${selectedSubNav === sub.label ? " selected" : ""}`}
-                        key={sub.label}
-                        onClick={() => {
-                          setSelectedNav(nav.label);
-                          setSelectedSubNav(sub.label);
-                          setOpenDropdown(""); // Close dropdown
+                  <button
+                    className={`dropdown-trigger${selectedNav === nav.label ? " active" : ""}`}
+                    onClick={() => {
+                      setOpenDropdown(openDropdown === nav.label ? "" : nav.label);
+                      setSelectedNav(nav.label);
+                      setSelectedSubNav(""); // Reset subnav
+                    }}
+                    type="button"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      outline: 'none',
+                      boxShadow: 'none',
+                      fontWeight: 'bold',
+                      fontSize: '1.25rem',
+                      color: openDropdown === nav.label ? '#ff6a00' : '#222',
+                      cursor: 'pointer',
+                      padding: '0 32px',
+                      borderRadius: 0,
+                      height: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      textDecoration: openDropdown === nav.label ? 'underline' : 'none',
+                      textUnderlineOffset: '6px',
+                      textDecorationThickness: '2px',
+                    }}
+                  >
+                    {nav.label}
+                  </button>
+                  {openDropdown === nav.label && (
+                  <div
+                    className="dropdown-menu mega-menu"
+                    style={{
+                      position: 'fixed',
+                      left: 0,
+                      right: 0,
+                      top: '119px',
+                      width: '100vw',
+                      minWidth: '100vw',
+                      maxWidth: '100vw',
+                      background: '#fff',
+                      borderRadius: '0 0 0 0',
+                      zIndex: 1001,
+                      padding: 0,
+                      textAlign: 'left',
+                      /* borderTop removed */
+                      boxSizing: 'border-box',
+                      height: 'auto',
+                    }}
+                    >
+                      <div
+                        className="mega-menu-content"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'center',
+                          alignItems: 'flex-start',
+                          width: '100%',
+                          maxWidth: '1200px',
+                          margin: '0 auto',
+                          padding: '32px 0 24px 0',
+                          gap: '80px',
                         }}
-                        type="button"
                       >
-                        {sub.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 0 }}>
+                          {nav.submenu.map(sub => (
+                            <button
+                              className={`dropdown-item${selectedSubNav === sub.label ? " selected" : ""}`}
+                              key={sub.label}
+                              style={{ textAlign: 'left', width: 200, fontSize: 18, fontWeight: 700, background: 'none', border: 'none', color: '#222', padding: '10px 0', borderBottom: 'none', cursor: 'pointer' }}
+                              onClick={() => {
+                                setSelectedNav(nav.label);
+                                setSelectedSubNav(sub.label);
+                                setOpenDropdown(""); // Close dropdown
+                              }}
+                              type="button"
+                            >
+                              {sub.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="other-menu">
             <div className="search">
