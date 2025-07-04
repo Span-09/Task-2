@@ -1,0 +1,614 @@
+.hero-root {
+  padding-top: 150px;
+}
+
+.hero-section-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section-box {
+  background: #fff;
+  padding: 32px 0 0 0;
+  width: 80vw;
+  max-width: 900px;
+  min-width: 320px;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.hero-section-title {
+  color: #ff6600;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  margin-left: 16px;
+  text-align: left;
+}
+
+.hero-banner-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-banner-img {
+  width: 95%;
+  max-width: 800px;
+  border-radius: 0;
+  display: block;
+}
+
+.hero-desc {
+  margin: 32px auto 0 auto;
+  text-align: center;
+  font-size: 1rem;
+  max-width: 670px;
+}
+
+.hero-info-box {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 36px auto 0 auto;
+  padding: 32px 32px 24px 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.hero-info-section {
+  margin-bottom: 24px;
+}
+
+.hero-info-title {
+  color: #ff6600;
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-info-icon {
+  color: #ff6600;
+  font-size: 1.1em;
+  margin-right: 2px;
+}
+
+.orange {
+  color: #ff6600;
+  font-weight: bold;
+}
+
+.hero-info-box ul {
+  margin: 0 0 12px 0;
+  padding-left: 18px;
+  color: #222;
+  font-size: 1rem;
+}
+
+.hero-info-box ul ul {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.hero-info-box li {
+  margin-bottom: 6px;
+}
+
+.hero-bottom-text {
+  max-width: 900px;
+  margin: 36px auto 0 auto;
+  text-align: center;
+}
+
+.hero-bottom-desc {
+  font-size: 1rem;
+  margin-bottom: 18px;
+  color: #222;
+}
+
+.hero-quote-box {
+  background: #fff3e0;
+  border-radius: 6px;
+  max-width: 600px;
+  margin: 24px auto 0 auto;
+  padding: 18px 12px;
+  text-align: center;
+}
+
+.hero-quote {
+  color: #ff6600;
+  font-size: 1.35rem;
+  font-weight: bold;
+}
+
+.hero-bottom-final {
+  margin-top: 24px;
+  font-size: 1.08rem;
+  color: #222;
+}
+
+.hero-contact-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 18px 24px;
+  max-width: 700px;
+  margin: 32px auto 0 auto;
+  gap: 24px;
+  border: 1.5px solid #ddd;
+}
+
+.hero-contact-left {
+  flex: 0 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-contact-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.hero-contact-center {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.hero-contact-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.hero-contact-person {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.hero-contact-info {
+  font-size: 1rem;
+}
+
+.hero-contact-highlight {
+  color: #ff6600;
+  background: #fff;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.hero-contact-right {
+  flex: 0 0 220px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Hero Contact Button - Redesign to match attached image */
+.hero-contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fffaf7;
+  color: #222;
+  border: 1.5px solid #ff6600;
+  border-radius: 999px;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 0 0;
+  height: 60px;
+  min-width: 240px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+  margin-left: auto;
+  margin-right: 0;
+  gap: 10px;
+  outline: none;
+}
+
+.hero-contact-btn b {
+  font-weight: 700;
+  color: #222;
+  font-size: 20px;
+}
+
+.hero-contact-btn p {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #222;
+  display: inline;
+}
+
+.hero-contact-btn:hover,
+.hero-contact-btn:focus {
+  background: #fff3e6;
+  color: #ff6600;
+  box-shadow: 0 2px 8px rgba(255, 102, 0, 0.08);
+}
+
+.hero-contact-arrow {
+  font-size: 22px;
+  margin-left: 10px;
+  color: #ff6600;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle;
+  transition: color 0.2s;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(40, 40, 40, 0.45);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Desktop modal window structure and style */
+.modal-window {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 540px;
+  width: 100%;
+  min-width: 480px;
+  padding: 40px 40px 32px 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  position: relative;
+  font-family: inherit;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Modal title and subtitle alignment */
+.modal-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+.modal-subtitle {
+  font-size: 1.05rem;
+  text-align: left;
+  margin-bottom: 18px;
+  color: #444;
+}
+.modal-desc {
+  font-size: 1rem;
+  background: #faf9f7;
+  border-left: 4px solid #ff6600;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  color: #333;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Modal form layout to match attached image */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.modal-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: nowrap;
+}
+.modal-row:not(:first-child) {
+  margin-top: 0;
+}
+.modal-row.single {
+  flex-direction: column;
+  gap: 0;
+}
+.modal-label {
+  display: block;
+  font-size: 1rem;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+.modal-input {
+  width: 100%;
+  background-color: #fff;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+.modal-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.modal-row-agree {
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0 0;
+}
+.modal-agree-label {
+  font-size: 1rem;
+  color: #222;
+  user-select: none;
+  font-weight: 500;
+}
+.modal-submit-btn {
+  margin-top: 28px;
+  width: 100%;
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 18px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  letter-spacing: 0.02em;
+}
+.modal-submit-btn:hover {
+  background: #e65500;
+}
+.modal-info {
+  font-size: 0.98rem;
+  color: #888;
+  margin: 18px 0 0 0;
+  text-align: left;
+}
+
+/* Modal close button */
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .modal-window {
+    min-width: 0;
+    max-width: 98vw;
+    padding: 24px 4vw 24px 4vw;
+  }
+  .modal-title {
+    font-size: 1.2rem;
+  }
+  .modal-input {
+    font-size: 0.98rem;
+    padding: 8px 8px;
+  }
+  .modal-label {
+    font-size: 0.93rem;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #444;
+}
+
+.modal-desc {
+  font-size: 0.98rem;
+  background: #faf9f7;
+  border-left: 4px solid #ff6600;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.modal-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (max-width: 500px) {
+  .modal-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .modal-col {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+  .modal-label {
+    margin-bottom: 2px;
+  }
+}
+
+.modal-label {
+  display: inline-block;
+  min-width: 90px;   /* or whatever fits your text */
+  margin-bottom: 0;
+  font-size: 0.97rem;
+  color: #222;
+  font-weight: 500;
+  vertical-align: middle;
+  white-space: nowrap; /* Prevents label from breaking into multiple lines */
+}
+
+.modal-input {
+  flex: 1;
+  background-color:white;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.modal-row-agree {
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0 0;
+}
+
+.modal-agree-label {
+  font-size: 0.98rem;
+  color: #444;
+  user-select: none;
+}
+
+.modal-submit-btn {
+  margin-top: 18px;
+  width: 100%;
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 13px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-submit-btn:hover {
+  background: #e65500;
+}
+
+.modal-info {
+  font-size: 0.93rem;
+  color: #888;
+  margin: 10px 0 0 0;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .hero-root {
+    padding-top: 70px;
+  }
+  .hero-section-box {
+    width: 98vw;
+    padding: 18px 0 0 0;
+  }
+  .hero-section-title {
+    font-size: 1.1rem;
+    margin-left: 8px;
+  }
+  .hero-banner-img {
+    width: 99%;
+  }
+  .hero-desc {
+    font-size: 0.98rem;
+    margin-top: 18px;
+  }
+  .hero-info-box {
+    padding: 16px 6vw 12px 6vw;
+  }
+  .hero-quote-box {
+    max-width: 98vw;
+    font-size: 1.05rem;
+    padding: 12px 4vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 4vw;
+    gap: 12px;
+  }
+  .hero-contact-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .hero-contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-contact-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-window {
+    padding: 18px 6vw 18px 6vw;
+    max-width: 98vw;
+  }
+  .modal-title {
+    font-size: 1.1rem;
+  }
+  .modal-input {
+    font-size: 0.98rem;
+    padding: 8px 8px;
+  }
+  .modal-label {
+    font-size: 0.93rem;
+  }
+}

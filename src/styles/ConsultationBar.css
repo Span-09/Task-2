@@ -1,0 +1,147 @@
+/* Slide-in bar container */
+.consultation-bar.right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 160px;
+  height: 100vh;
+  background: #fff;
+  border-radius: 32px 0 0 32px;
+  box-shadow: -2px 0 16px rgba(0,0,0,0.10);
+  z-index: 10000;
+  padding: 24px 0 18px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  pointer-events: none;
+}
+
+.consultation-bar.right.open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.consultation-bar.right .consultation-close {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  z-index: 2;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Floating arrow button (both desktop & mobile) */
+.consultation-fab.right {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 100px;
+  background: #ff6600;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 0;
+}
+
+.consultation-fab.right .chevron-icon {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Shared content styles */
+.consultation-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.consultation-kakao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.kakao-badge {
+  background: #ffe812;
+  color: #222;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.consultation-label {
+  color: #444;
+  font-size: 1.08rem;
+  text-align: center;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.consultation-divider {
+  width: 80%;
+  height: 1px;
+  background: #eee;
+  margin: 10px 0 0 0;
+}
+
+.consultation-yeseco {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.yeseco-yellow {
+  color: #ffd600;
+}
+
+.yeseco-orange {
+  color: #ff9900;
+  margin-left: 2px;
+}
+
+.consultation-shortcut {
+  color: #888;
+  font-size: 1.05rem;
+  margin-top: 2px;
+  text-align: center;
+}
+
+/* Responsive tweaks for mobile */
+@media (max-width: 768px) {
+  .consultation-bar.right {
+    width: 80vw;
+    max-width: 320px;
+    border-radius: 24px 0 0 24px;
+    gap: 12px;
+    padding: 18px 0 12px 0;
+  }
+}
