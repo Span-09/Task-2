@@ -2,7 +2,8 @@ import "../styles/Hero.css";
 import banner from "../assets/images/hero-banner.png";
 import main from "../assets/images/hero-main.png";
 import contact from "../assets/images/hero-contact.png";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import ModalWindow from "./ModalWindow.jsx";
 const tabs = [
   {
     label: "관공서 공무원 기부",
@@ -43,11 +44,18 @@ const tabs = [
 ];
 
 const Hero = () => {
-  const [activeTab, setActiveTab] = useState(0);
-  const currentImages = tabs[activeTab].images;
+  const [activeTab, setActiveTab] = useState(0); 
+  const [showModal, setShowModal] = useState(false); 
+  const modalRef = useRef(null);
+  const currentImages = tabs[activeTab].images; 
 
   const handleOpenModal = () => {
-    // Modal removed
+    setShowModal(true);
+    setTimeout(() => {
+      if (modalRef.current) {
+        modalRef.current.scrollToTop();
+      }
+    }, 0); // Wait for modal to render
   };
 
   return (
@@ -93,6 +101,11 @@ const Hero = () => {
           </div>
           </div>
         </div>
+      </div>
+      <div>
+        {showModal && (
+          <ModalWindow ref={modalRef} isOpen={showModal} onClose={() => setShowModal(false)} />
+        )}
       </div>
     </div>
   );
