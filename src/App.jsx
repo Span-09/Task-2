@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import ConsultationBar from './components/ConsultationBar.jsx';
-import DonationTabs from './components/DonationTabs.jsx';
 import Footer from './components/Footer.jsx';
 function App() {
   const [zoom, setZoom] = useState(1);
@@ -31,7 +30,6 @@ function App() {
       >
         <Header zoom={zoom} setZoom={setZoom} />
         <Hero />
-        <DonationTabs />
         <Footer />
       </div>
     </div>
