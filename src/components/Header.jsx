@@ -99,28 +99,25 @@ const Header = ({ zoom, setZoom }) => {
   return (
     <header className="header">
       {/* Mobile Header Bar */}
-      <div className="mobile-header-bar">
-        <div className="mobile-hamburger" onClick={() => setShowMobileMenu(true)}>
-          <div className="mobile-menu-icon">
-            <div className="mobile-menu-icon-container">
-              <div className="mobile-menu">
-                <img src={menu} alt="Menu" />
+      <div className="mobile-header-container">
+        <div className="mobile-header-bar">
+          <div className="mobile-hamburger-container">
+            <div className="mobile-hamburger-box">
+              <div className="icon-menu">
+                <img src={menu} alt="Menu Icon" />
+              </div>
+            </div>
+            <div className="mobile-header-logo-container">
+              <img src={logo} alt="Logo" />
+            </div>
+            <div className="mobile-header-search-container">
+              <div className="mobile-header-search">
+                <img src={search} alt="Search icon"  onClick={() => setShowSearch(!showSearch)} />
               </div>
             </div>
           </div>
         </div>
-        <div className="mobile-logo">
-          <div className="mobile-logo-image">
-            <img src={logo} alt="Logo" />
-          </div>
-        </div>
-        <div className="mobile-actions">
-          <div className="mobile-actions-conatiner">
-            <img src={search} alt="Search" onClick={() => setShowSearch(!showSearch)} />
-          </div>
-        </div>
       </div>
-
       <div
         className="custom-mobile-dropdown"
         style={{
@@ -235,7 +232,8 @@ const Header = ({ zoom, setZoom }) => {
           )}
         </div>
       </div>
-      
+
+      {/* ...rest of your existing header (desktop only) */}
       <div className="header_logo">
         <div className="logo-image">
           <img src={logo} alt="Logo" />

@@ -3,10 +3,8 @@
   padding-right: 50px;
   align-items: center;
   position: fixed;
-  margin: 0;
-  padding:0;
   right: 0px;
-  top: 150px;
+  top: 140px;
   z-index: 1000; /* Ensure it appears above other content */
 }
 .consultation-content{
@@ -62,6 +60,12 @@
   height: 24.341px;
   flex-shrink: 0;
 }
+.kakao-text,.phone-text,.mail-text{
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+  width: auto;
+}
 .kakao-text a{
   color: var(--Gray-70, #4D4D4D);
 
@@ -69,7 +73,7 @@
   font-family: HanwhaGothic;
   font-size: 15px;
   font-style: normal;
-  font-weight: 250;
+  font-weight: 500;
   line-height: 150%; /* 22.5px */
 }
 .phone-grp{
@@ -112,7 +116,7 @@
   font-family: HanwhaGothic;
   font-size: 15px;
   font-style: normal;
-  font-weight: 250;
+  font-weight: 500;
   line-height: 150%; /* 22.5px */
 }
 .mail-grp{
@@ -155,7 +159,7 @@
   font-family: HanwhaGothic;
   font-size: 15px;
   font-style: normal;
-  font-weight: 250;
+  font-weight: 500;
   line-height: 150%; /* 22.5px */
 }
 hr{
