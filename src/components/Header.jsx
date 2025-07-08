@@ -7,15 +7,15 @@ import search from "../assets/images/gg_search.svg"; // Import close icon
 import home from "../assets/images/home.svg";
 import plus from "../assets/images/tdesign_plus.svg";
 import minus from "../assets/images/ic_outline-minus.svg";
-import mobileArrow from "../assets/images/arrow-down.svg";
+import mobileUpArrow from "../assets/images/arrow-down.svg";
 
 const navLinks = [
   {
     label: "나눔의행복",
     submenu: [
       { label: "나눔의행복(특약) 소개", href: "#index.html" },
-      { label: "참여기업", href: "/Shopping/DonatedInsurance/about_donor_insurance.php#proceduresGuide" },
-      { label: "납품기업", href: "/Shopping/DonatedInsurance/about_donor_insurance.php#warningContainer" }
+      { label: "참여기업", href: "/Shopping/DonatedInsurance/about_donor_insurance.php" },
+      { label: "납품기업", href: "/Shopping/DonatedInsurance/about_donor_insurance.php" }
     ]
   },
   {
@@ -101,88 +101,141 @@ const Header = ({ zoom, setZoom }) => {
       {/* Mobile Header Bar */}
       <div className="mobile-header-bar">
         <div className="mobile-hamburger" onClick={() => setShowMobileMenu(true)}>
-          <img src={menu} alt="Menu" />
+          <div className="mobile-menu-icon">
+            <div className="mobile-menu-icon-container">
+              <div className="mobile-menu">
+                <img src={menu} alt="Menu" />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="mobile-logo">
-          <img src={logo} alt="Logo" />
+          <div className="mobile-logo-image">
+            <img src={logo} alt="Logo" />
+          </div>
         </div>
         <div className="mobile-actions">
-          <img src={search} alt="Search" onClick={() => setShowSearch(!showSearch)} />
+          <div className="mobile-actions-conatiner">
+            <img src={search} alt="Search" onClick={() => setShowSearch(!showSearch)} />
+          </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      <div className={`mobile-drawer ${showMobileMenu ? "open" : ""}`}>
-        <div className="drawer-header">
-          <img src={logo} alt="Logo" className="drawer-logo" />
-        </div>
-        <nav className="drawer-nav">
-          {navLinks.map((nav) => (
-            <div key={nav.label} className="drawer-nav-item">
-              <button
-                className="drawer-nav-label mobile-nav-center"
-                style={{
-                  background: "none",
-                  border: "none",
-                  width: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: "bold",
-                  fontSize: "1.1rem",
-                  color: openMobileNav === nav.label ? "#ff6a00" : "#222",
-                  padding: "10px 0",
-                  cursor: "pointer",
-                  gap: "6px"
-                }}
-                onClick={() => setOpenMobileNav(openMobileNav === nav.label ? "" : nav.label)}
-              >
-                {nav.label}
-                <img
-                  src={mobileArrow}
-                  alt="dropdown arrow"
-                  style={{
-                    width: 22,
-                    height: 14,
-                    marginLeft: 4,
-                    transition: "transform 0.2s",
-                    transform: openMobileNav === nav.label ? "rotate(180deg)" : "none"
-                  }}
-                />
-              </button>
-              {openMobileNav === nav.label && (
-                <div className="drawer-submenu" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                  {nav.submenu.map((sub) => (
-                    <a
-                      key={sub.label}
-                      href={sub.href}
-                      className="drawer-submenu-link"
-                      style={{ textAlign: "center", width: "100%" }}
-                      onClick={() => {
-                        setSelectedNav(nav.label);      // set main nav for breadcrumb
-                        setSelectedSubNav(sub.label);   // set subnav for breadcrumb
-                        setShowMobileMenu(false);       // close drawer
-                        setOpenMobileNav("");           // close submenu
-                      }}
-                    >
-                      {sub.label}
-                    </a>
-                  ))}
-                </div>
-              )}
+      <div
+        className="custom-mobile-dropdown"
+        style={{
+          width: '100%',
+          background: '#fff',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+          borderRadius: '0 0 12px 12px',
+          marginTop: 0,
+          zIndex: 1002,
+          position: 'relative',
+          display: 'block',
+        }}
+      >
+        <div className="mobile-only-dropdown">
+          {openMobileNav === '' ? (
+            <div
+              style={{
+                textalign: 'center',
+
+                /* Body/L */
+                fontfamily: 'HanwhaGothic',
+                fontsize: '17px',
+                fontstyle: 'normal',
+                fontweight: '250',
+                lineheight: '150%', /* 25.5px */
+                width: '100%',
+                textAlign: 'center',
+                fontWeight: 700,
+                fontSize: 20,
+                color: '#222',
+                padding: '18px 0 8px 0',
+                borderBottom: '1px solid #eee',
+                background: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+                cursor: 'pointer',
+              }}
+              onClick={() => setOpenMobileNav(navLinks[0].label)}
+            >
+              {navLinks[0].label}
+              <img src={mobileUpArrow} alt="dropdown arrow" style={{ width: 21, height: 20, marginLeft: 6, display: 'inline-block', verticalAlign: 'middle', transform: 'rotate(180deg)' }} />
             </div>
-          ))}
-        </nav>
-        {/* Mobile drawer buttons removed as requested */}
+          ) : (
+            <>
+              <div
+                style={{
+                  width: '100%',
+                  textAlign: 'center',
+                  fontWeight: 700,
+                  fontSize: 20,
+                  color: '#222',
+                  padding: '18px 0 8px 0',
+                  borderBottom: '1px solid #eee',
+                  background: 'white',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 8,
+                  cursor: 'pointer',
+                }}
+                onClick={() => setOpenMobileNav('')}
+              >
+                {openMobileNav}
+                <img src={mobileUpArrow} alt="dropdown arrow" style={{ width: 21, height: 20, marginLeft: 6, display: 'inline-block', verticalAlign: 'middle', transform: 'rotate(0deg)' }} />
+              </div>
+              {navLinks.find(n => n.label === openMobileNav)?.submenu.map((sub, idx) => (
+                <a
+                  key={sub.label}
+                  href={sub.href}
+                  className="drawer-submenu-link"
+                  style={{
+                    textAlign: 'center',
+                    width: '100%',
+                    fontWeight: idx === 0 ? 700 : 400,
+                    color: idx === 0 ? '#ff6a00' : '#222',
+                    fontSize: 19,
+                    padding: '10px 0 8px 0',
+                    borderBottom: 'none',
+                    background: 'none',
+                    textDecoration: idx === 0 ? 'underline' : 'none',
+                    textUnderlineOffset: idx === 0 ? '6px' : undefined,
+                    textDecorationColor: idx === 0 ? '#ff6a00' : undefined,
+                    textDecorationThickness: idx === 0 ? '2px' : undefined,
+                    margin: 0,
+                    transition: 'color 0.2s',
+                    cursor: 'pointer',
+                    lineHeight: 1.6,
+                    letterSpacing: '-0.5px',
+                    display: 'block',
+                  }}
+                  onClick={e => {
+                    setSelectedNav(openMobileNav);      // set main nav for breadcrumb
+                    setSelectedSubNav(sub.label);   // set subnav for breadcrumb
+                    setOpenMobileNav('');           // close dropdown
+                    // Only allow default navigation for left click without modifier keys
+                    if (
+                      e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1
+                    ) {
+                      return;
+                    }
+                    // For normal left click, allow navigation
+                    // For SPA, you would use a router here
+                    // Otherwise, let the browser handle navigation
+                  }}
+                >
+                  {sub.label}
+                </a>
+              ))}
+            </>
+          )}
+        </div>
       </div>
-      {showMobileMenu && (
-        <div
-          className="drawer-overlay"
-          onClick={() => setShowMobileMenu(false)}
-        />
-      )}
-
-      {/* ...rest of your existing header (desktop only) */}
+      
       <div className="header_logo">
         <div className="logo-image">
           <img src={logo} alt="Logo" />
@@ -211,24 +264,6 @@ const Header = ({ zoom, setZoom }) => {
                       setSelectedSubNav(""); // Reset subnav
                     }}
                     type="button"
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      outline: 'none',
-                      boxShadow: 'none',
-                      fontWeight: 'bold',
-                      fontSize: '1.25rem',
-                      color: openDropdown === nav.label ? '#ff6a00' : '#222',
-                      cursor: 'pointer',
-                      padding: '0 32px',
-                      borderRadius: 0,
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      textDecoration: openDropdown === nav.label ? 'underline' : 'none',
-                      textUnderlineOffset: '6px',
-                      textDecorationThickness: '2px',
-                    }}
                   >
                     {nav.label}
                   </button>
@@ -239,7 +274,7 @@ const Header = ({ zoom, setZoom }) => {
                       position: 'fixed',
                       left: 0,
                       right: 0,
-                      top: '119px',
+                      top: '129px',
                       width: '100vw',
                       minWidth: '100vw',
                       maxWidth: '100vw',
@@ -269,19 +304,28 @@ const Header = ({ zoom, setZoom }) => {
                       >
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 0 }}>
                           {nav.submenu.map(sub => (
-                            <button
+                            <a
                               className={`dropdown-item${selectedSubNav === sub.label ? " selected" : ""}`}
                               key={sub.label}
-                              style={{ textAlign: 'left', width: 200, fontSize: 18, fontWeight: 700, background: 'none', border: 'none', color: '#222', padding: '10px 0', borderBottom: 'none', cursor: 'pointer' }}
-                              onClick={() => {
+                              style={{ textAlign: 'left', width: 200, fontSize: 18, fontWeight: 700, background: 'none', border: 'none', color: '#222', padding: '10px 0', borderBottom: 'none', cursor: 'pointer', textDecoration: 'none' }}
+                              href={sub.href}
+                              onClick={e => {
                                 setSelectedNav(nav.label);
                                 setSelectedSubNav(sub.label);
                                 setOpenDropdown(""); // Close dropdown
+                                // Only allow default navigation for left click without modifier keys
+                                if (
+                                  e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1
+                                ) {
+                                  return;
+                                }
+                                // For normal left click, allow navigation
+                                // For SPA, you would use a router here
+                                // Otherwise, let the browser handle navigation
                               }}
-                              type="button"
                             >
                               {sub.label}
-                            </button>
+                            </a>
                           ))}
                         </div>
                       </div>
@@ -316,12 +360,12 @@ const Header = ({ zoom, setZoom }) => {
               )}
             </div>
             <div className="my-page">
-              <button id="mypage-button" className="drawer-action-btn" href="/Shopping/sign_up.php">
+              <button id="mypage-button" href="/Shopping/sign_up.php">
                 마이페이지
               </button>
             </div>
             <div className="my-page">
-              <button id="logout-button" className="drawer-action-btn" href="/Shopping/login.php">
+              <button id="logout-button" href="/Shopping/login.php">
                 로그인
               </button>
             </div>
