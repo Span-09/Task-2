@@ -167,6 +167,13 @@
     font-weight: bold;
     line-height: 150%;
 }
+.form-footer-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
 .form-footer-button button{
     display: flex;
     justify-content: center;
@@ -178,7 +185,7 @@
     border-radius: 6px;
     font-size: 1.2rem;
     cursor: pointer;
-    width: 610px;
+    width: 100%;
 }
 @media (max-width: 600px) {
   .modal-overlay {
@@ -309,7 +316,7 @@
     gap: 12px;
   }
   .form-footer-button button {
-    width: 300px;
+    width: 100%;
     box-sizing: border-box;
     font-size: 1.2rem;
     padding: 12px 0;
@@ -459,7 +466,7 @@
     line-height: 1.5;
   }
   .form-footer-button button {
-    width: 370px;
+    width: 100%;
     box-sizing: border-box;
     font-size: 1.2rem;
     padding: 12px 0;
