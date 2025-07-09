@@ -288,6 +288,9 @@
   gap: var(--gap-3, 8px);
   border-radius: 4px;
   background: var(--Primary-100, #F60);
+  color: white;
+  border: none;
+  outline: none;
 }
 
 
