@@ -863,6 +863,22 @@
     display: none !important;
   }
 }
+@media (min-width: 769px) {
+  .mobile-header-bar,
+  .mobile-header-container,
+  .custom-mobile-dropdown,
+  .mobile-drawer,
+  .drawer-overlay {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .main-menu,
+  .header_logo,
+  .header_logo_container {
+    display: none !important;
+  }
+}
 
 
 

@@ -345,4 +345,7 @@ box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.12), 0px 1px 4px 0px rgba(0, 0, 0, 0
     .hero-container{
       margin-bottom: 32px;
     }
+    .frame-text,.frame-text1{
+      font-size: 0.8rem !important; /* Adjust font size for smaller screens */
+    }
   }
