@@ -97,7 +97,8 @@ const Header = ({ zoom, setZoom }) => {
   };
 
   return (
-    <header className="header">
+
+      <header className="header">
       {/* Mobile Header Bar */}
       <div className="mobile-header-container">
         <div className="mobile-header-bar">
@@ -234,9 +235,11 @@ const Header = ({ zoom, setZoom }) => {
       </div>
 
       {/* ...rest of your existing header (desktop only) */}
-      <div className="header_logo">
+      <div className="header_logo_container">
         <div className="logo-image">
-          <img src={logo} alt="Logo" />
+          <div className="logo-frame">
+            <img src={logo} alt="Logo" />
+          </div>
         </div>
       </div>
       <div className="main-menu">
@@ -272,7 +275,7 @@ const Header = ({ zoom, setZoom }) => {
                       position: 'fixed',
                       left: 0,
                       right: 0,
-                      top: '129px',
+                      top: '150px',
                       width: '100vw',
                       minWidth: '100vw',
                       maxWidth: '100vw',
@@ -398,60 +401,54 @@ const Header = ({ zoom, setZoom }) => {
           </div>
         </div>
       )}
-
-      {/* Breadcrumb navigation */}
+    {/* Breadcrumb navigation */}
       {breadcrumbVisible && (
         <div className="second-container">
-          <div className="second-navigation">
-            <div className="home">
-              <img src={home} alt="Home" />
-            </div>
-            <div className="home-text">
-              <a className="nav" href="#index.html">
-                홈
-              </a>
-            </div>
-            {selectedNav && (
-              <div className="home-text">
-                <a className="nav" href="#">
-                  {selectedNav}
-                </a>
+            <div className="second-navigation">
+              <div className="breadcrumb-container">
+                <div className="home">
+                  <div className="home-icon-container">
+                    <img src={home} alt="Home" />
+                  </div>  
+                  <a className="nav" href="#index.html">
+                    홈
+                  </a>
+                </div>
+                {selectedNav && (
+                  <div className="home">
+                    <a className="nav1" href="#">
+                      {selectedNav}
+                    </a>
+                  </div>
+                )}
+                {selectedSubNav && (
+                  <div className="home1">
+                    <a className="nav2" href="#">
+                      {selectedSubNav}
+                    </a>
+                  </div>
+                )}
               </div>
-            )}
-            {selectedSubNav && (
-              <div className="home-text">
-                <a className="nav" href="#">
-                  {selectedSubNav}
-                </a>
+              <div className="third-container">
+                  <p id="percent-value">{Math.round((zoom || 1) * 100)}%</p>
+                  <p
+                    id="increase-value"
+                    onClick={handleZoomIn}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src={plus} alt="Plus" />
+                  </p>
+                  <p id="decrease-value"
+                  onClick={handleZoomOut}
+                  style={{ cursor: "pointer" }}>
+                    <img src={minus} alt="Minus" />
+                  </p>
               </div>
-            )}
-          </div>
-          <div className="third-container">
-            <div className="percent">
-              <p id="percent-value">{Math.round((zoom || 1) * 100)}%</p>
-            </div>
-            <div id="increase">
-              <p
-                id="increase-value"
-                onClick={handleZoomIn}
-                style={{ cursor: "pointer" }}
-              >
-                <img src={plus} alt="Plus" />
-              </p>
-            </div>
-            <div
-              id="decrease"
-              onClick={handleZoomOut}
-              style={{ cursor: "pointer" }}
-            >
-              <p id="decrease-value">
-                <img src={minus} alt="Minus" />
-              </p>
-            </div>
           </div>
         </div>
       )}
-    </header>
+      </header>
+    
   );
 };
 

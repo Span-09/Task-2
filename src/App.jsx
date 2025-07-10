@@ -9,30 +9,13 @@ function App() {
   const [zoom, setZoom] = useState(1);
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        minHeight: "100vh",
-        overflow: "auto",
-        background: "#fff"
-      }}
-    >
-      <ConsultationBar />
-
-      <div
-        style={{
-          width: `${100 / zoom}vw`,      // <-- Adjust width based on zoom
-          height: `${100 / zoom}vh`,     // <-- Adjust height based on zoom
-          transform: `scale(${zoom})`,
-          transformOrigin: "top left",
-          transition: "transform 0.2s, width 0.2s, height 0.2s"
-        }}
-      >
-        <Header zoom={zoom} setZoom={setZoom} />
-        <Hero />
-        <Footer />
-      </div>
-    </div>
+    <>
+    <ConsultationBar />
+    <Header/>
+    <Hero />
+    <Footer />
+    </>
+      
   );
 }
 

@@ -65,21 +65,18 @@ const Hero = () => {
           <div className="hero-title-container">
             <h2 className="hero-title">나눔의행복(특약) 소개</h2>
           </div>
-          <div className="hero-banner-container"><img src={banner} alt="Banner" className="hero-banner-img" /></div>
-          <div className="hero-main-content">
-            <img src={main} alt="Main content" className="hero-main-img" />
-          </div>
+          <img src={banner} alt="Banner" className="hero-banner-img" />
         </div>
+        <img src={main} alt="Main content" className="hero-main-img" />
         <div className="hero-action">
-          <div className="hero-action-part1">
-            <div className="hero-contact">
-              <img src={contact} alt="Contact information" className="hero-contact-img" />
-            </div>
+         <div className="hero-action-part1">
+            <img src={contact} alt="Contact information" className="hero-contact-img" />
             <div className="hero-action-button" onClick={handleOpenModal} style={{ cursor: "pointer" }}>
               <h3 className="hero-action-text">「나눔의 행복」 <span id="가입신청">가입신청 </span> <span id="arrow">{'>'}</span></h3>
             </div>
           </div>
-          <div className="hero-action-part2">
+        </div>
+        <div className="hero-action-part2">
             <div className="tab">
               {tabs.map((tab, idx) => (
                 <div
@@ -92,15 +89,12 @@ const Hero = () => {
                 </div>
               ))}
             </div>
-            <div className="frame-image">
+          </div>
+          <div className="frame-image">
             {currentImages.map((img, idx) => (
-              <div key={idx} className={`image${idx + 1}`}>
                 <img src={img} alt="" />
-              </div>
             ))}
           </div>
-          </div>
-        </div>
       </div>
       <div>
         {showModal && (

@@ -28,7 +28,9 @@ const ModalWindow = forwardRef(({ isOpen, onClose }, ref) => {
     return (
         <div className="modal-overlay">
             <div className="modal-content" ref={modalContentRef}>
-                <button onClick={onClose} className="close-button">×</button>
+                <div className="close-button-div">
+                    <button onClick={onClose} className="close-button">×</button>
+                </div>
                 <div className="container">
                     <div className="title-container">
                         <div className="title-box">

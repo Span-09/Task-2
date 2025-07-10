@@ -233,6 +233,9 @@ line-height: 150%; /* 18px */
   .footer {
     display: none;
   }
+  .mobile-footer{
+    display: block;
+  }
   .mobile-footer {
     display: flex;
     flex-direction: column;
