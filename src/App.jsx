@@ -10,12 +10,12 @@ function App() {
 
   return (
     <>
-    <ConsultationBar />
     <Header/>
     <Hero />
     <Footer />
+    <ConsultationBar />
     </>
-      
+
   );
 }
 

@@ -221,7 +221,7 @@ hr{
   .consultation-bar{
     display: none;
     position: fixed;
-    right: 350px;
+    right: 250px;
     top: 150px;
   }
   .show{
@@ -286,5 +286,16 @@ hr{
     z-index: 2;
     outline: none;
     box-shadow: none;
+  }
+}
+@media (max-width: 480px) {
+  .consultation-bar{
+    display: none;
+    position: fixed;
+    right: -15px;
+    top: 150px;
+  }
+  .show{
+    display: block;
   }
 }
